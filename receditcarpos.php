@@ -2,35 +2,13 @@
 /**
  * System Plugin.
  *
- * @package    ListViewRemPos
+ * @package    RecEditCarPos
  * @subpackage Plugin
- * @author     Hans-Guenter Heiserholt {@link http://www.web-hgh.de}
- * @author     Created on 18-Sep-2014
+ * @author     Hans-Guenter Heiserholt {@link http://www.moba-hgh.de}
+ * @author     Created on 01-Jan-2024
  * @license    GNU/GPL Public License version 2 or later
  *
  * 1.0.0 First Edition
- * 1.0.1 + default-option: option=com_installer enabled 
- *       + default-option: option=com_tags      enabled
- *       + default-option: option=com_finder    enabled
- *       + default-option: option=com_search    enabled
- *       + default-option: option=com_media     enabled
- *       + default-option: option=com_redirect  enabled
- *       - com_menue
- *       + com_menus
- * 1.0.2 + std-options enabled
- *       ° change cookie-handling js
- * 1.0.3 + correction of menutypes blockade
- * 1.0.4   changes J4
- *       ° J3: $html = JResponse::getBody();
- *		   J4: $html = JFactory::getApplication()->getBody();
- *       ° J3: JResponse::setBody($html);
- *		   J4: JFactory::getApplication()->setBody($html);
- *       ° J3: window.addEvent(....  
- *		   J4: window.addEventListener(....
- * ------------------------------------------------------------
- *       + new 
- *       - delete
- *		 ° change
  */
  
 //-- No direct access
@@ -39,7 +17,7 @@ defined( '_JEXEC' ) || die( 'Restricted access' );
 
 jimport( 'joomla.plugin.plugin' );
 
-class plgSystemListViewRemPos extends JPlugin
+class plgSystemRecEditCurPos extends JPlugin
 {
     /**
      * Constructor
@@ -63,8 +41,8 @@ class plgSystemListViewRemPos extends JPlugin
 //      $this->loadLanguage();
          
         $language = JFactory::getLanguage();
-        $language->load('pjg_system_recovereditcurpos', JPATH_ADMINISTRATOR, 'en-GB', true);
-        $language->load('pjg_system_recovereditcurpos', JPATH_ADMINISTRATOR,    null, true);
+        $language->load('pjg_system_receditcurpos', JPATH_ADMINISTRATOR, 'en-GB', true);
+        $language->load('pjg_system_receditcurpos', JPATH_ADMINISTRATOR,    null, true);
 
          /* ----------------------------------
           * load the plugin-params
@@ -85,7 +63,7 @@ class plgSystemListViewRemPos extends JPlugin
         $params_9 = $this->params->get('adv_parm_9');
         $params_10 = $this->params->get('adv_parm_10');
         $params_11 = $this->params->get('adv_parm_11');
-		$params_12 = $this->params->get('adv_parm_12');
+	$params_12 = $this->params->get('adv_parm_12');
         $params_13 = $this->params->get('adv_parm_13');
         $params_14 = $this->params->get('adv_parm_14');
         $params_14 = $this->params->get('adv_parm_15');
@@ -95,7 +73,7 @@ class plgSystemListViewRemPos extends JPlugin
          /* ----------------------------------------
           * fill variable for dynamic if-statement 
           * ---------------------------------------- */
-
+/*
         global $com_adv_found;
         global $com_std_found;
 		global $com_std;
@@ -103,7 +81,7 @@ class plgSystemListViewRemPos extends JPlugin
         $com_adv_found = false;
         $com_std_found = false;
 		$com_std='';
-
+*/
 //      echo  '<br /><br /><br />function __construct:com_flg_found_load = ' .$com_adv_found;
 //      echo              '<br />function __construct: url = '  .$_SERVER['REQUEST_URI'];
 
@@ -111,7 +89,7 @@ class plgSystemListViewRemPos extends JPlugin
           *  user plugin listview call-strings 
           *  if parm(0 ... 14) is used, search url and if found, set flag
           * ------------------------------------------------------------ */
-
+/*
 		if ($this->params->get('adv_parm_0')) {
 		 if (strpos ($_SERVER['REQUEST_URI'],'option=' .$this->params->get('adv_parm_0'))) {
 			$com_adv_found = true;
@@ -193,11 +171,11 @@ class plgSystemListViewRemPos extends JPlugin
 			$com_adv_found = true;
 		 }
 		}
-	  	  	  	  
+*/	  	  	  	  
          /* -----------------------------------
           * system-plugin listview call-strings 
           * ----------------------------------- */
-
+/*
 		if (strpos ($_SERVER['REQUEST_URI'],'option=com_banners')) {
 		  if ($this->params->get('LVRP_com_banners')) {
 			$com_std_found = true;
@@ -299,7 +277,7 @@ class plgSystemListViewRemPos extends JPlugin
 			$com_std_found = true;
 		  }
 		}
-
+*/
 //  	echo    '<br /><br /><br />function __construct:com_flg_found = ' .$com_adv_found;    
 //	    $com_adv_found = false;
 //		$com_std_found = false;
@@ -320,8 +298,8 @@ class plgSystemListViewRemPos extends JPlugin
 		* set load-events
 		* ---------------------------------- */ 
 		$doc =& JFactory::getDocument();
-			$content = "document.addEventListener('load', function() {getCurPosTxtarea();});";
-	   		$doc->addScriptDeclaration($content);
+		$content = "document.addEventListener('load', function() {getCurPosTxtarea();});";
+	   	$doc->addScriptDeclaration($content);
 	// versuch-end		
 //		JFactory::getApplication()->clearMessageQueue('all');
 //		$session = JFactory::getSession();
@@ -338,10 +316,10 @@ class plgSystemListViewRemPos extends JPlugin
 
 	// versuch
 	  	$getCurPosTxtarea  = ' onclick="getCurPosTxtarea()" ';
-	 //	 	echo $getCurPosTxtarea;
+	//	 	echo $getCurPosTxtarea;
 	//		$class='class="button-apply btn btn-success"';
 	//      <textarea spellcheck="false" autocomplete="off" name="jform[articletext]"
-	 // 		$class='<textarea spellcheck="false" autocomplete="off" name="jform[articletext]"';			
+	// 		$class='<textarea spellcheck="false" autocomplete="off" name="jform[articletext]"';			
 	//  		$class='id="jform_articletext"';			
 	  	$class='class="button-apply btn btn-success"';			
 	  	$body_new = str_replace($class, $getCurPosTxtarea .$class, $body_new);   // Für edit  			
@@ -351,13 +329,13 @@ class plgSystemListViewRemPos extends JPlugin
 		/* ----------------------------------
 		 * put back the changed html
 		 * ---------------------------------- */
-//J4        JResponse::setBody($html);
+//J4        	JResponse::setBody($html);
 		JFactory::getApplication()->setBody($html);
 
 		return;
     }
 
-    /**
+   /**
      * Log events.
      *
      * @param string $event The event to be logged.
