@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="plugin" version="3.0" method="upgrade" group="system">
-  <name>ListView Remember Position</name>
-  <creationDate>11-Mar-2015</creationDate>
+<extension type="plugin" version="1.0" method="upgrade" group="system">
+  <name>Recover Editor Caret Positiuon</name>
+  <creationDate>01-Jan-2025</creationDate>
   <author>Hans-Guenter Heiserholt</author>
-  <authorEmail>joomla@web-hgh-moba.de</authorEmail>
-  <authorUrl>http://www.web-hgh-moba.de</authorUrl>
+  <authorEmail>joomla@moba-hgh.de</authorEmail>
+  <authorUrl>http://www.moba-hgh.de</authorUrl>
   <copyright>JED-HGH | Joomla Extension Development by HGH</copyright>
   <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-  <version>1.0.2</version>
+  <version>1.0.0</version>
   <description><![CDATA[   
    <div align="center">
        <table border="0" width="90%">
@@ -71,8 +71,8 @@
     <folder>js</folder>
     <folder>language</folder>
     <filename>index.html</filename>
-    <filename plugin="recovereditcurpos">recovereditcurpos.php</filename>
-    <filename>recovereditcurpos_CHANGELOG.php</filename>
+    <filename plugin="receditcarpos">receditcarpos.php</filename>
+    <filename>receditcarpos_CHANGELOG.php</filename>
   </files>
   <params/>
   <config>
