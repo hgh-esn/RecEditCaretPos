@@ -283,22 +283,21 @@ class plgSystemRecEditCurPos extends JPlugin
 //		$com_std_found = false;
 /*		
         if ($com_adv_found === false && $com_std_found === false) {
-			// Get a handle to the Joomla! application object
-			$application = JFactory::getApplication();
+		// Get a handle to the Joomla! application object
+		$application = JFactory::getApplication();
 			
-			// Add a message to the message queue
- 			$application->enqueueMessage(JText::_('keine Komponenten Parameter > com_xxxxxxx < definiert!'), 'error');
-			$session = JFactory::getSession();
-			$session->set('application.queue', null);
-		}
-*/
-	
+		// Add a message to the message queue
+ 		$application->enqueueMessage(JText::_('keine Komponenten Parameter > com_xxxxxxx < definiert!'), 'error');
+		$session = JFactory::getSession();
+		$session->set('application.queue', null);
+	}
+*/	
 	// versuch-start   	
 		/* ----------------------------------
 		* set load-events
 		* ---------------------------------- */ 
 		$doc =& JFactory::getDocument();
-		$content = "document.addEventListener('load', function() {getCurPosTxtarea();});";
+		$content = "document.addEventListener('load', function() {getCarPosTxtarea();});";
 	   	$doc->addScriptDeclaration($content);
 	// versuch-end		
 //		JFactory::getApplication()->clearMessageQueue('all');
@@ -309,18 +308,17 @@ class plgSystemRecEditCurPos extends JPlugin
     /**
      * Event onAfterRender
      */
-    public function onAfterRender()
-    {
-		  
+	
+     public function onAfterRender()
+     {
 		$html = JFactory::getApplication()->getBody();
-
 	// versuch
 	  	$getCurPosTxtarea  = ' onclick="getCurPosTxtarea()" ';
-	//	 	echo $getCurPosTxtarea;
-	//		$class='class="button-apply btn btn-success"';
+	//	echo $getCurPosTxtarea;
+	//	$class='class="button-apply btn btn-success"';
 	//      <textarea spellcheck="false" autocomplete="off" name="jform[articletext]"
-	// 		$class='<textarea spellcheck="false" autocomplete="off" name="jform[articletext]"';			
-	//  		$class='id="jform_articletext"';			
+	// 	$class='<textarea spellcheck="false" autocomplete="off" name="jform[articletext]"';			
+	//  	$class='id="jform_articletext"';			
 	  	$class='class="button-apply btn btn-success"';			
 	  	$body_new = str_replace($class, $getCurPosTxtarea .$class, $body_new);   // Für edit  			
 	//
@@ -331,8 +329,7 @@ class plgSystemRecEditCurPos extends JPlugin
 		 * ---------------------------------- */
 //J4        	JResponse::setBody($html);
 		JFactory::getApplication()->setBody($html);
-
-		return;
+	return;
     }
 
    /**
@@ -341,9 +338,10 @@ class plgSystemRecEditCurPos extends JPlugin
      * @param string $event The event to be logged.
      * @param string $comment A comment about the event.
      */
+	
     private function _log ($status, $comment)
     {
-//       echo '<br /><br /><br /><br /><br />HGH-Log:<br /><br />';
+	//	echo '<br /><br /><br /><br /><br />HGH-Log:<br /><br />';
    /*
         jimport('joomla.error.log');
 
